@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Конвертер</title>
+</head>
+<body>
+    <h1>Конвертер валют</h1>
+    <form method="post" action="/convert">
+        <input type="input" name="value" placeholder="Значение валюты">
+        <select name="oldCurrency">
+            <option selected disabled>Изначальная валюта</option>
+            <option>€</option>
+            <option>£</option>
+            <option>₽</option>
+            <option>¥</option>
+            <option>$</option>
+        </select> <br>
+        <select name="newCurrency">
+            <option selected disabled>Получаемая валюта</option>
+            <option>€</option>
+            <option>£</option>
+            <option>₽</option>
+            <option>¥</option>
+            <option>$</option>
+        </select> <br>
+        <input type="submit" value="Конвертировать">
+    </form>
+</body>
+</html>

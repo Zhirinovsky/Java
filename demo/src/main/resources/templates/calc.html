@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Калькулятор</title>
+</head>
+<body>
+    <h1>Калькулятор</h1>
+    <form method="post" action="/calc">
+        <input required type="input" name="first" placeholder="Первый аргумент">
+        <select name="operation">
+            <option selected disabled>Операция</option>
+            <option>+</option>
+            <option>-</option>
+            <option>*</option>
+            <option>/</option>
+            <option>%</option>
+        </select>
+        <input required type="input" name="second" placeholder="Второй аргумент">
+        <input type="submit" value="Вычислить">
+    </form>
+</body>
+</html>
