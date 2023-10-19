@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Создание</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.css}">
+</head>
+<body class="d-flex justify-content-center align-items-center text-center vh-100">
+<div th:switch="${model}">
+    <div th:case="bank">
+        <form th:method="POST" th:action="@{/newBank}" th:object="${object}">
+            <h1 class="display-5 mb-4">Создание банка</h1>
+            <div class="mb-3">
+                <div class="form-group">
+                    <label class="mb-1" for="name">Название</label>
+                    <input class="form-control" type="text" id="name" th:field="*{name}">
+                </div>
+            </div>
+            <div class="mb-3">
+                <div class="form-group">
+                    <label class="mb-1" for="money">Баланс</label>
+                    <input class="form-control" type="text" id="money" th:field="*{money}">
+                </div>
+            </div>
+            <div class="mb-3">
+                <div class="form-group">
+                    <label class="mb-1" for="concurrency">Валюта</label>
+                    <input class="form-control" type="text" id="concurrency" th:field="*{concurrency}">
+                </div>
+            </div>
+            <div class="mb-3">
+                <div class="form-group">
+                    <label class="mb-1" for="address">Адрес</label>
+                    <input class="form-control"  type="text" id="address" th:field="*{address}">
+                </div>
+            </div>
+            <input class="btn btn-lg btn-primary mt-3" type="submit" value="Создать">
+        </form>
+    </div>
+    <div th:case="order">
+        <form th:method="post" th:action="@{/newOrder}" th:object="${object}">
+            <h1 class="display-5 mb-4">Создание заказа</h1>
+            <div class="mb-3">
+                <div class="form-group">
+                    <label class="mb-1" for="name">Название</label>
+                    <input class="form-control" type="text" id="name" th:field="*{name}">
+                </div>
+            </div>
+            <div class="mb-3">
+                <div class="form-group">
+                    <label class="mb-1" for="date">Дата</label>
+                    <input class="form-control" type="text" id="date" th:field="*{date}">
+                </div>
+            </div>
+            <div class="mb-3">
+                <div class="form-group">
+                    <label class="mb-1" for="price">Цена</label>
+                    <input class="form-control" type="text" id="price" th:field="*{price}">
+                </div>
+            </div>
+            <div class="mb-3">
+                <div class="form-group">
+                    <label class="mb-1" for="address">Адрес</label>
+                    <input class="form-control"  type="text" id="address" th:field="*{address}">
+                </div>
+            </div>
+            <input class="btn btn-lg btn-primary mt-3" type="submit" value="Создать">
+        </form>
+    </div>
+    <div th:case="person">
+        <form th:method="post" th:action="@{/newPerson}" th:object="${object}">
+            <h1 class="display-5 mb-4">Создание человека</h1>
+            <div class="mb-3">
+                <div class="form-group">
+                    <label class="mb-1" for="name">Название</label>
+                    <input class="form-control" type="text" id="name" th:field="*{name}">
+                </div>
+            </div>
+            <div class="mb-3">
+                <div class="form-group">
+                    <label class="mb-1" for="age">Возраст</label>
+                    <input class="form-control" type="text" id="age" th:field="*{age}">
+                </div>
+            </div>
+            <div class="mb-3">
+                <div class="form-group">
+                    <label class=n"mb-1" for="passportSerial">Серия паспорта</label>
+                    <input class="form-control" type="text" id="passportSerial" th:field="*{passportSerial}">
+                </div>
+            </div>
+            <div class="mb-3">
+                <div class="form-group">
+                    <label class="mb-1" for="passportNumber">Номер паспорта</label>
+                    <input class="form-control"  type="text" id="passportNumber" th:field="*{passportNumber}">
+                </div>
+            </div>
+            <input class="btn btn-lg btn-primary mt-3" type="submit" value="Создать">
+        </form>
+    </div>
+    <div th:case="product">
+        <form th:method="post" th:action="@{/newProduct}" th:object="${object}">
+            <h1 class="display-5 mb-4">Создание продукта</h1>
+            <div class="mb-3">
+                <div class="form-group">
+                    <label class="mb-1" for="number">Номер</label>
+                    <input class="form-control" type="text" id="number" th:field="*{number}">
+                </div>
+            </div>
+            <div class="mb-3">
+                <div class="form-group">
+                    <label class="mb-1" for="name">Название</label>
+                    <input class="form-control" type="text" id="name" th:field="*{name}">
+                </div>
+            </div>
+            <div class="mb-3">
+                <div class="form-group">
+                    <label class="mb-1" for="price">Цена</label>
+                    <input class="form-control" type="text" id="price" th:field="*{price}">
+                </div>
+            </div>
+            <div class="mb-3">
+                <div class="form-group">
+                    <label class="mb-1" for="amount">Количество</label>
+                    <input class="form-control" type="text" id="amount" th:field="*{amount}">
+                </div>
+            </div>
+            <input class="btn btn-lg btn-primary mt-3" type="submit" value="Создать">
+        </form>
+    </div>
+    <div th:case="storage">
+        <form th:method="post" th:action="@{/newStorage}" th:object="${object}">
+            <h1 class="display-5 mb-4">Создание хранилища</h1>
+            <div class="mb-3">
+                <div class="form-group">
+                    <label class="mb-1" for="name">Название</label>
+                    <input class="form-control" type="text" id="name" th:field="*{name}">
+                </div>
+            </div>
+            <div class="mb-3">
+                <div class="form-group">
+                    <label class="mb-1" for="address">Адрес</label>
+                    <input class="form-control" type="text" id="address" th:field="*{address}">
+                </div>
+            </div>
+            <div class="mb-3">
+                <div class="form-group">
+                    <label class="mb-1" for="capacity">Вместимость</label>
+                    <input class="form-control" type="text" id="capacity" th:field="*{capacity}">
+                </div>
+            </div>
+            <input class="btn btn-lg btn-primary mt-3" type="submit" value="Создать">
+        </form>
+    </div>
+</div>
+<script th:src="@{/js/bootstrap.js}"></script>
+</body>
+</html>

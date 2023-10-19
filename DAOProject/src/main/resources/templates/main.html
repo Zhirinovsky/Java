@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Все списки</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.css}">
+</head>
+<body>
+<table class="table table-striped caption-top">
+    <caption class="display-6">Список продуктов</caption>
+    <thead>
+    <tr>
+        <td scope="col">Идентификатор</td>
+        <td scope="col">Номер</td>
+        <td scope="col">Наименование</td>
+        <td scope="col">Цена</td>
+        <td scope="col">Количество</td>
+        <td scope="col">Изменить</td>
+        <td scope="col">Удалить</td>
+    </tr>
+    </thead>
+    <tbody>
+        <tr th:each="item: ${products}">
+            <td scope="col" th:text="${item.getId()}"></td>
+            <td scope="col" th:text="${item.getNumber()}"></td>
+            <td scope="col" th:text="${item.getName()}"></td>
+            <td scope="col" th:text="${item.getAmount()}"></td>
+            <td scope="col" th:text="${item.getPrice()}"></td>
+            <td scope="col">
+                <form th:method="get" th:action="@{/{id}/edit(id = ${item.getId()})}">
+                    <input type="hidden" name="model" th:value="product">
+                    <input class="btn btn-primary" type="submit" value="Изменить">
+                </form>
+            </td>
+            <td scope="col">
+                <form th:method="delete" th:action="@{/{id}/delete(id = ${item.getId()})}">
+                    <input type="hidden" name="model" th:value="product">
+                    <input class="btn btn-danger" type="submit" value="Удалить">
+                </form>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<form class="d-flex h-25" th:method="get" th:action="@{/new}">
+    <input type="hidden" name="model" th:value="product">
+    <input class="btn btn-success m-auto" type="submit" value="Создать новую запись">
+</form>
+<table class="table table-striped caption-top">
+    <caption class="display-6">Список банков</caption>
+    <thead>
+    <tr>
+        <td scope="col">Идентификатор</td>
+        <td scope="col">Название</td>
+        <td scope="col">Баланс</td>
+        <td scope="col">Валюта</td>
+        <td scope="col">Адрес</td>
+        <td scope="col">Изменить</td>
+        <td scope="col">Удалить</td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="item: ${banks}">
+        <td scope="col" th:text="${item.getId()}"></td>
+        <td scope="col" th:text="${item.getName()}"></td>
+        <td scope="col" th:text="${item.getMoney()}"></td>
+        <td scope="col" th:text="${item.getConcurrency()}"></td>
+        <td scope="col" th:text="${item.getAddress()}"></td>
+        <td scope="col">
+            <form th:method="get" th:action="@{/{id}/edit(id = ${item.getId()})}">
+                <input type="hidden" name="model" th:value="bank">
+                <input class="btn btn-primary" type="submit" value="Изменить">
+            </form>
+        </td>
+        <td scope="col">
+            <form th:method="delete" th:action="@{/{id}/delete(id = ${item.getId()})}">
+                <input type="hidden" name="model" th:value="bank">
+                <input class="btn btn-danger" type="submit" value="Удалить">
+            </form>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<form class="d-flex h-25" th:method="get" th:action="@{/new}">
+    <input type="hidden" name="model" th:value="bank">
+    <input class="btn btn-success m-auto" type="submit" value="Создать новую запись">
+</form>
+<table class="table table-striped caption-top">
+    <caption class="display-6">Список заказов</caption>
+    <thead>
+    <tr>
+        <td scope="col">Идентификатор</td>
+        <td scope="col">Название</td>
+        <td scope="col">Дата составления</td>
+        <td scope="col">Цена</td>
+        <td scope="col">Адрес</td>
+        <td scope="col">Изменить</td>
+        <td scope="col">Удалить</td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="item: ${orders}">
+        <td scope="col" th:text="${item.getId()}"></td>
+        <td scope="col" th:text="${item.getName()}"></td>
+        <td scope="col" th:text="${item.getDate()}"></td>
+        <td scope="col" th:text="${item.getPrice()}"></td>
+        <td scope="col" th:text="${item.getAddress()}"></td>
+        <td scope="col">
+            <form th:method="get" th:action="@{/{id}/edit(id = ${item.getId()})}">
+                <input type="hidden" name="model" th:value="order">
+                <input class="btn btn-primary" type="submit" value="Изменить">
+            </form>
+        </td>
+        <td scope="col">
+            <form th:method="delete" th:action="@{/{id}/delete(id = ${item.getId()})}">
+                <input type="hidden" name="model" th:value="order">
+                <input class="btn btn-danger" type="submit" value="Удалить">
+            </form>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<form class="d-flex h-25" th:method="get" th:action="@{/new}">
+    <input type="hidden" name="model" th:value="order">
+    <input class="btn btn-success m-auto" type="submit" value="Создать новую запись">
+</form>
+<table class="table table-striped caption-top">
+    <caption class="display-6">Список человек</caption>
+    <thead>
+    <tr>
+        <td scope="col">Идентификатор</td>
+        <td scope="col">Название</td>
+        <td scope="col">Дата составления</td>
+        <td scope="col">Цена</td>
+        <td scope="col">Адрес</td>
+        <td scope="col">Изменить</td>
+        <td scope="col">Удалить</td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="item: ${peoples}">
+        <td scope="col" th:text="${item.getId()}"></td>
+        <td scope="col" th:text="${item.getName()}"></td>
+        <td scope="col" th:text="${item.getAge()}"></td>
+        <td scope="col" th:text="${item.getPassportNumber()}"></td>
+        <td scope="col" th:text="${item.getPassportSerial()}"></td>
+        <td scope="col">
+            <form th:method="get" th:action="@{/{id}/edit(id = ${item.getId()})}">
+                <input type="hidden" name="model" th:value="person">
+                <input class="btn btn-primary" type="submit" value="Изменить">
+            </form>
+        </td>
+        <td scope="col">
+            <form th:method="delete" th:action="@{/{id}/delete(id = ${item.getId()})}">
+                <input type="hidden" name="model" th:value="person">
+                <input class="btn btn-danger" type="submit" value="Удалить">
+            </form>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<form class="d-flex h-25" th:method="get" th:action="@{/new}">
+    <input type="hidden" name="model" th:value="person">
+    <input class="btn btn-success m-auto" type="submit" value="Создать новую запись">
+</form>
+<table class="table table-striped caption-top">
+    <caption class="display-6">Список хранилищ</caption>
+    <thead>
+    <tr>
+        <td scope="col">Идентификатор</td>
+        <td scope="col">Название</td>
+        <td scope="col">Адрес</td>
+        <td scope="col">Вместительность</td>
+        <td scope="col">Изменить</td>
+        <td scope="col">Удалить</td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="item: ${storages}">
+        <td scope="col" th:text="${item.getId()}"></td>
+        <td scope="col" th:text="${item.getName()}"></td>
+        <td scope="col" th:text="${item.getAddress()}"></td>
+        <td scope="col" th:text="${item.getCapacity()}"></td>
+        <td scope="col">
+            <form th:method="get" th:action="@{/{id}/edit(id = ${item.getId()})}">
+                <input type="hidden" name="model" th:value="storage">
+                <input class="btn btn-primary" type="submit" value="Изменить">
+            </form>
+        </td>
+        <td scope="col">
+            <form th:method="delete" th:action="@{/{id}/delete(id = ${item.getId()})}">
+                <input type="hidden" name="model" th:value="storage">
+                <input class="btn btn-danger" type="submit" value="Удалить">
+            </form>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<form class="d-flex h-25" th:method="get" th:action="@{/new}">
+    <input type="hidden" name="model" th:value="storage">
+    <input class="btn btn-success m-auto" type="submit" value="Создать новую запись">
+</form>
+<script th:src="@{/js/bootstrap.js}"></script>
+</body>
+</html>
