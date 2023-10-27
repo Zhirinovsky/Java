@@ -11,7 +11,7 @@ public class Supplier {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    @NotBlank()
+    @NotBlank(message = "Нужно указать наименование поставщика")
     private String name;
     @OneToMany (mappedBy = "supplier", fetch = FetchType.EAGER)
     private Collection<Product> tenants;

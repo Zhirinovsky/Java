@@ -1,6 +1,7 @@
 package com.example.dbproject.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 
 @Entity()
@@ -9,13 +10,13 @@ public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    @NotBlank()
+    @NotBlank(message = "У продукта должен быть номер")
     private String number;
-    @NotBlank()
+    @NotBlank(message = "У продукта должно быть название")
     private String name;
-    @NotBlank()
+    @Min(value =0, message = "Цена должна быть положительной")
     private double price;
-    @NotBlank()
+    @Min(value =0, message = "Количество должно быть положительным")
     private int amount;
     @ManyToOne(optional = true, cascade = CascadeType.ALL)
     private Storage storage;

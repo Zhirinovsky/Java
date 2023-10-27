@@ -1,7 +1,9 @@
 package com.example.dbproject.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
 import java.util.Collection;
 
@@ -11,9 +13,10 @@ public class Storage {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    @NotBlank()
+    @NotBlank(message = "Нужно указать адрес хранилища")
     private String address;
-    @NotBlank()
+    @NotNull(message = "Нужно указать вместимость склада")
+    @Min(value = 0, message = "Вместимость должна быть положительной")
     private int capacity;
     @OneToMany (mappedBy = "storage", fetch = FetchType.EAGER)
     private Collection<Product> tenants;
