@@ -1,6 +1,7 @@
 package com.example.dbproject.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 
@@ -14,9 +15,10 @@ public class Buyer {
     private int id;
     @Size(min = 11, max = 11)
     private String phone;
-    @NotBlank()
+    @Email(message = "Почта должна быть почтой")
+    @NotBlank(message = "У покупателя должна быть указана почта")
     private String email;
-    @NotBlank()
+    @NotBlank(message = "У покупателя должна быть указана почта")
     private String password;
 
     @OneToOne(optional = true, cascade = CascadeType.ALL)

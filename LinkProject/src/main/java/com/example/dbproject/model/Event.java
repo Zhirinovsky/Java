@@ -11,7 +11,7 @@ public class Event {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    @NotBlank()
+    @NotBlank(message = "У акции должно быть название")
     private String name;
     @OneToMany (mappedBy = "event", fetch = FetchType.EAGER)
     private Collection<Product> tenants;

@@ -5,6 +5,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
 import java.sql.Date;
 
@@ -14,11 +15,11 @@ public class Orderr {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    @NotBlank()
+    @NotNull(message = "У заказа должна быть указан номер")
     private int number;
-    @NotBlank()
+    @NotNull(message = "Нужно указать дату заказа")
     private Date date;
-    @NotBlank()
+    @NotNull(message = "Нужно указать статус оплаты заказа")
     private boolean payment;
 
     public Orderr(){}

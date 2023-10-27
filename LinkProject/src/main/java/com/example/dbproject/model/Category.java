@@ -12,7 +12,7 @@ public class Category {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    @NotBlank()
+    @NotBlank(message = "У категории должно быть указано название")
     private String name;
 
     @ManyToMany

@@ -14,18 +14,18 @@ public class Staff {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    @NotBlank()
+    @NotBlank(message = "Нужно указать фамилию сотрудника")
     private String lastName;
-    @NotBlank()
+    @NotBlank(message = "Нужно указать имя сотрудника")
     private String name;
     @Size(min = 0, max = 300)
     private String middleName;
-    @NotBlank()
+    @NotBlank(message = "Нужно указать пол сотрудника")
     private String gender;
-    @Email(message = "Email should be valid")
-    @NotBlank()
+    @Email(message = "Почта должна быть почтой")
+    @NotBlank(message = "Нужно указать почту сотрудника")
     private String email;
-    @NotBlank()
+    @NotBlank(message = "Нужно указать пароль сотрудника")
     private String password;
 
     public Staff(){}

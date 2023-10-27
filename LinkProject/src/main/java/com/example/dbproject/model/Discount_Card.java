@@ -1,7 +1,9 @@
 package com.example.dbproject.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
 @Entity()
@@ -9,9 +11,10 @@ public class Discount_Card {
 
     @Id
     private int id;
-    @Size(min = 11, max = 11)
+    @NotNull(message = "Номер карты должен быть указан")
+    @Min(value = 10000, message = "Номер карты должен начинаться с 10001")
     private int number;
-    @NotBlank()
+    @NotNull(message = "У карты должна быть указана скидка")
     private int discount;
     @OneToOne(optional = true, mappedBy = "discountCard")
     private Buyer owner;
